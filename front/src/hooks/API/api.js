@@ -49,3 +49,17 @@ export async function getProtfolioInfo(id) {
   }
   return data;
 }
+
+export async function getRequstToManger(id) {
+  let data;
+  if(id===1){
+    data=[{'id':1,"stack":"money",'why':":)","ammount":50,"stat":"pending"},{'id':2,"stack":"lot of money",'why':"123","ammount":20,"stat":"accept"},{'id':3,"stack":"money 1",'why':":23","ammount":50,"stat":"denie"}]
+  }
+  if(id===2){
+    data=[{'id':1,"stack":"bbbb",'why':":)","ammount":50,"stat":"pending"},{'id':2,"stack":"aaaa",'why':"123","ammount":20,"stat":"accept"},{'id':3,"stack":"cccc",'why':":23","ammount":50,"stat":"denie"}]
+  }
+  else{
+    data=[{'id':1,"stack":"cccc",'why':":)","ammount":50,"stat":"pending"},{'id':2,"stack":"yyyy",'why':"123","ammount":20,"stat":"accept"},{'id':3,"stack":"kkkk",'why':":23","ammount":50,"stat":"denie"}]
+  }
+  return data;
+}

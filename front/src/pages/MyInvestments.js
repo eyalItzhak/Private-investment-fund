@@ -10,6 +10,7 @@ import InvestmentList from "../components/investment/InvestmentList";
 const Myinvestments = (props) => {
 
   return (
+    
     <div className={classes.row}>
       <div className={classes.left}>
         <Card><InvestmentList/></Card>

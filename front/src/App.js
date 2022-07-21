@@ -9,6 +9,7 @@ import Layout from "./components/layout/layout";
 import Myinvestments from "./pages/MyInvestments";
 import MarketPage from "./pages/MarketPage";
 import Investment from "./pages/Investment"
+import Manager from "./pages/Manager";
 
 const WelcomePage = React.lazy(() => import("./pages/WelcomePage.js"));
 
@@ -28,8 +29,12 @@ function App() {
            <Myinvestments/> 
         </Route>
 
-        <Route path="/Myinvestments/:Id">
+        <Route path="/Myinvestments/:Id" exact>
             <Investment />
+          </Route>
+
+          <Route path="/Myinvestments/:Id/Manger" exact>
+            <Manager />
           </Route>
 
         <Route path="/currentmarket" exact>

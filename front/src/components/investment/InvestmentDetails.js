@@ -20,7 +20,7 @@ const InvestmentDetails = (props) => {
 
   let renderData = (
     <div className={classes.container}>
-      <div >
+      <div className={classes.left}>
         <Card>contract address {data.contract}</Card>
         <Card>manager address {data.manager}</Card>
         <Card>investors {data.numOfInvestor}</Card>
