@@ -1,13 +1,14 @@
-import React from "react";
+//import React ,{useEffect} from "react";
 import Card from "../components/UI/Card";
 import classes from "./MarketPage.module.css";
 import BaseOptionMenu from "../components/UI/BaseOptionMenu"
 import { useParams } from "react-router-dom";
 import InvestmentDetails from "../components/investment/InvestmentDetails"
-import MyInvestmentMenu from "../components/UI/MyInvestmentMenu"
+import InvestmentMenu from "../components/UI/InvestmentMenu"
+  
 
 const Investment = (props) => {
-const params = useParams();
+
 
   return (
     <div className={classes.row}>
@@ -16,7 +17,7 @@ const params = useParams();
       </div>
 
       <div className={classes.right}>
-        <Card><BaseOptionMenu/><hr className={classes.hr}/><MyInvestmentMenu/></Card>
+        <Card><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/></Card>
       </div>
     </div>
   );

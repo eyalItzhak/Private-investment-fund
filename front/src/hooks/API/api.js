@@ -35,16 +35,17 @@ export async function getProtfolioInfo(id) {
     };
   } else {
     data = {
-        contract: "0x24445",
-        manager: "0x8246",
-        numOfInvestor: 10,
-        stackHolderList: ["0x812332", "0x866465"],
-        yield: "200%",
-        init_time: "16/04/1980",
-        end_time: "14/04/1985",
-        case_stock: 150,
-        case_resrve: 150,
-        startCase: 100,
-      }
+      contract: "0x24445",
+      manager: "0x8246",
+      numOfInvestor: 10,
+      stackHolderList: ["0x812332", "0x866465"],
+      yield: "200%",
+      init_time: "16/04/1980",
+      end_time: "14/04/1985",
+      case_stock: 150,
+      case_resrve: 150,
+      startCase: 100,
+    };
   }
+  return data;
 }

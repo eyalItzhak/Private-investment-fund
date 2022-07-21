@@ -28,7 +28,7 @@ function App() {
            <Myinvestments/> 
         </Route>
 
-        <Route path="/Myinvestments/:id">
+        <Route path="/Myinvestments/:Id">
             <Investment />
           </Route>
 
