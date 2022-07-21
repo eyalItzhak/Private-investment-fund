@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "../components/UI/Card";
-import classes from "./WelcomePage.module.css";
+import classes from "./MarketPage.module.css";
 import BaseOptionMenu from "../components/UI/BaseOptionMenu"
 
-const WelcomePage = (props) => {
+const MarketPage = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
@@ -17,4 +17,4 @@ const WelcomePage = (props) => {
   );
 };
 
-export default WelcomePage;
+export default MarketPage;

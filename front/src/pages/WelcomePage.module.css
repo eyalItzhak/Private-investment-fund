@@ -1,0 +1,11 @@
+.row {
+   display: flex;
+   flex-wrap: wrap;
+  }
+
+.left{
+    flex: 75%;
+}  
+.right{
+    flex: 25%;
+} 
