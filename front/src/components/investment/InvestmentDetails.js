@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import Card from "../UI/Card";
 import classes from "./InvestmentDetails.module.css";
 import { getProtfolioInfo } from "../../hooks/API/api";

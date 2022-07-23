@@ -2,7 +2,6 @@
 import Card from "../components/UI/Card";
 import classes from "./MarketPage.module.css";
 import BaseOptionMenu from "../components/UI/BaseOptionMenu"
-import { useParams } from "react-router-dom";
 import InvestmentDetails from "../components/investment/InvestmentDetails"
 import InvestmentMenu from "../components/UI/InvestmentMenu"
   
@@ -17,7 +16,7 @@ const Investment = (props) => {
       </div>
 
       <div className={classes.right}>
-        <Card><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/></Card>
+        <Card><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/><hr className={classes.hr}/></Card>
       </div>
     </div>
   );

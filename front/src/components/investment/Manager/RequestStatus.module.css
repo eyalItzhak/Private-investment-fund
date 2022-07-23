@@ -1,4 +1,28 @@
-.portfolio{
+
+  .nav ul {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 2;
+  }
+  
+  .nav li {
+    font-size: 1.25rem;
+    padding-top: 5%;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #88dfdf;
+  }
+  
+  .nav a:hover,
+  .nav a:active,
+  .nav a.active {
+    color: #e6fcfc;
+  }
+  
+  .container{
     display: flex;
     flex-wrap: wrap;
 }

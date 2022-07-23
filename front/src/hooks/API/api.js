@@ -51,15 +51,132 @@ export async function getProtfolioInfo(id) {
 }
 
 export async function getRequstToManger(id) {
+  console.log(id);
   let data;
-  if(id===1){
-    data=[{'id':1,"stack":"money",'why':":)","ammount":50,"stat":"pending"},{'id':2,"stack":"lot of money",'why':"123","ammount":20,"stat":"accept"},{'id':3,"stack":"money 1",'why':":23","ammount":50,"stat":"denie"}]
+  if (id === "1") {
+    data = [
+      {
+        id: 1,
+        stack: "money",
+        why: ":)",
+        ammount: 50,
+        stat: "pending",
+        pos: 2,
+        neg: 1,
+      },
+      {
+        id: 2,
+        stack: "lot of money",
+        why: "123",
+        ammount: 20,
+        stat: "accept",
+        pos: 2,
+        neg: 1,
+      },
+      {
+        id: 3,
+        stack: "money 1",
+        why: ":23",
+        ammount: 50,
+        stat: "denie",
+        pos: 2,
+        neg: 1,
+      },
+    ];
   }
-  if(id===2){
-    data=[{'id':1,"stack":"bbbb",'why':":)","ammount":50,"stat":"pending"},{'id':2,"stack":"aaaa",'why':"123","ammount":20,"stat":"accept"},{'id':3,"stack":"cccc",'why':":23","ammount":50,"stat":"denie"}]
+  if (id === "2") {
+    data = [
+      {
+        id: 1,
+        stack: "333",
+        why: ":)",
+        ammount: 50,
+        stat: "pending",
+        pos: 2,
+        neg: 1,
+      },
+      {
+        id: 2,
+        stack: "2222",
+        why: "123",
+        ammount: 20,
+        stat: "accept",
+        pos: 2,
+        neg: 1,
+      },
+      {
+        id: 3,
+        stack: "1111",
+        why: ":23",
+        ammount: 50,
+        stat: "denie",
+        pos: 2,
+        neg: 1,
+      },
+    ];
   }
-  else{
-    data=[{'id':1,"stack":"cccc",'why':":)","ammount":50,"stat":"pending"},{'id':2,"stack":"yyyy",'why':"123","ammount":20,"stat":"accept"},{'id':3,"stack":"kkkk",'why':":23","ammount":50,"stat":"denie"}]
+  if (id === "3") {
+    data = [
+      {
+        id: 1,
+        stack: "cccc",
+        why: ":)",
+        ammount: 50,
+        stat: "pending",
+        pos: 2,
+        neg: 1,
+      },
+      {
+        id: 2,
+        stack: "yyyy",
+        why: "123",
+        ammount: 20,
+        stat: "accept",
+        pos: 2,
+        neg: 1,
+      },
+      {
+        id: 3,
+        stack: "kkkk",
+        why: ":23",
+        ammount: 50,
+        stat: "denie",
+        pos: 2,
+        neg: 1,
+      },
+    ];
   }
+  console.log(data);
+  return data;
+}
+
+export async function getPesonalInfo(id) {
+  let data;
+  if (id === "1") {
+    data = {
+      init_case: 100,
+      current_case: 200,
+      join_date: "31.08.1997",
+      rank: "manager",
+    };
+    return data;
+  }
+
+  if (id === "2") {
+    data = {
+      init_case: 100,
+      current_case: 70,
+      join_date: "21.01.2005",
+      rank: "stakeholder",
+    };
+    return data;
+  }
+  data = {
+    init_case: 100,
+    current_case: 100,
+    join_date: "11.09.2009",
+    rank: "investor",
+  };
+
   return data;
 }

@@ -10,6 +10,8 @@ import Myinvestments from "./pages/MyInvestments";
 import MarketPage from "./pages/MarketPage";
 import Investment from "./pages/Investment"
 import Manager from "./pages/Manager";
+import Stakeholder  from "./pages/Stakeholder";
+import InvetorPage from "./pages/investorPage"
 
 const WelcomePage = React.lazy(() => import("./pages/WelcomePage.js"));
 
@@ -37,9 +39,18 @@ function App() {
             <Manager />
           </Route>
 
+          <Route path="/Myinvestments/:Id/Stakeholder" exact>
+            <Stakeholder />
+          </Route>
+
+          <Route path="/Myinvestments/:Id/Investor" exact>
+            <InvetorPage />
+          </Route>
+
         <Route path="/currentmarket" exact>
            <MarketPage/> 
         </Route>
+        
 
         
 

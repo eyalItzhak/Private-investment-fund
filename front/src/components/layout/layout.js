@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Classes from "./Layout.module.css";
 import MainNavigation from "./MainNavigation";
-import Footer from "./Footer";
+//import Footer from "./Footer";
 
 const Layout = (props) => {
   return (
@@ -9,7 +9,7 @@ const Layout = (props) => {
       <div>
         <MainNavigation />
         <main className={Classes.main}>{props.children}</main>
-        <Footer/>
+        {/*<Footer/>*/}
       </div>
     </Fragment>
   );
