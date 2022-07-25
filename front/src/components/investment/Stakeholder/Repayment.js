@@ -4,7 +4,7 @@ import classes from "./Repayment.module.css";
 
 const Repayment = (props) => {
   return (
-       <a href="#" class={classes.button}>Repayment</a>
+       <a href="/" className={classes.button}>Repayment</a>
   );
 };
 

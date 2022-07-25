@@ -16,7 +16,7 @@ const InvestorOptions = (props) => {
       setData(info);
     };
     runfunc();
-  }, []);
+  }, [params.Id]);
 
   return (
     <div className={classes.container}>

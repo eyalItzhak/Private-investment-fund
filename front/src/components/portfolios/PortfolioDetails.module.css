@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content:  space-between;
+}
+
+.left{
+    padding: 1px;
+}
+.center{
+    padding: 1px;
+}
+.right{
+    padding: 1px;
+}

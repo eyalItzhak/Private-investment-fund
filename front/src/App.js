@@ -12,6 +12,9 @@ import Investment from "./pages/Investment"
 import Manager from "./pages/Manager";
 import Stakeholder  from "./pages/Stakeholder";
 import InvetorPage from "./pages/investorPage"
+import AllPortfolios from "./pages/AllPortfolios"
+import Portfolio from "./pages/Portfolio"
+import MakeInvestmentForm from "./pages/MakeInvestmentForm"
 
 const WelcomePage = React.lazy(() => import("./pages/WelcomePage.js"));
 
@@ -45,6 +48,18 @@ function App() {
 
           <Route path="/Myinvestments/:Id/Investor" exact>
             <InvetorPage />
+          </Route>
+
+          <Route path="/portfolios" exact>
+            <AllPortfolios/>
+          </Route>
+
+          <Route path="/portfolios/:id" exact>
+            <Portfolio/>
+          </Route>
+          
+          <Route path="/portfolios/:id/InvestmentForm" exact>
+            <MakeInvestmentForm/>
           </Route>
 
         <Route path="/currentmarket" exact>

@@ -18,7 +18,7 @@ const RequestStatus = (props) => {
       setData(listOfRequsets);
     };
     runfunc();
-  }, []);
+  }, [params.Id]);
 
   return (
     <div className={classes.portfolios}>
