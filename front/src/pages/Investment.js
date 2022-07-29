@@ -2,9 +2,11 @@
 import Card from "../components/UI/Card";
 import classes from "./MarketPage.module.css";
 import BaseOptionMenu from "../components/UI/BaseOptionMenu"
-import InvestmentDetails from "../components/investment/InvestmentDetails"
+//import InvestmentDetails from "../components/investment/InvestmentDetails"
 import InvestmentMenu from "../components/UI/InvestmentMenu"
-  
+ 
+import getContractInfo from "../API/ETH/getContractInfo";
+import ContractsDetails from "../components/ContractDetails/ContractsDetails"
 
 const Investment = (props) => {
 
@@ -12,7 +14,7 @@ const Investment = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
-        <Card><InvestmentDetails/></Card>
+      <Card><ContractsDetails ContractInfo={getContractInfo}/></Card>
       </div>
 
       <div className={classes.right}>

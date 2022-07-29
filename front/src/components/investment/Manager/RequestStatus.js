@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 //import Card from "../../UI/Card";
 import classes from "./RequestStatus.module.css";
 import { getRequstToManger } from "../../../hooks/API/api";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import RequsetDetail from "./RequsetDetail";
 import ToggleSwtich from "../../UI/ToggleSwitch";
+import getReqests from "../../../API/ETH/getReqests";
 
 const RequestStatus = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,9 +14,11 @@ const RequestStatus = (props) => {
   let params = useParams();
   useEffect(() => {
     const runfunc = async () => {
-      let listOfRequsets = await getRequstToManger(params.Id);
+     // let listOfRequsets = await getRequstToManger(params.Id);
+      console.log("req=>" + params.Id);
+      let req = await getReqests(params.Id);
       setIsLoading(false);
-      setData(listOfRequsets);
+      setData(req);
     };
     runfunc();
   }, [params.Id]);
@@ -23,11 +26,11 @@ const RequestStatus = (props) => {
   return (
     <div className={classes.portfolios}>
       {isLoading && <div>loading</div>}
-      {data.map((Request) => (
-        <div key={Request.id}>
+      {data.map((Request,index) => (
+        <div key={index}>
           <div className={classes.container}>
-            <RequsetDetail info={Request} />
-           y <ToggleSwtich /> n<ToggleSwtich />
+            <RequsetDetail info={Request} index={index} />
+            y <ToggleSwtich /> n<ToggleSwtich />
           </div>
         </div>
       ))}

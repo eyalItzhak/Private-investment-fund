@@ -2,9 +2,12 @@
 import Card from "../components/UI/Card";
 import classes from "./Portfolio.module.css";
 import BaseOptionMenu from "../components/UI/BaseOptionMenu"
-import PortfolioDetails from "../components/portfolios/PortfolioDetails"
+
+//import PortfolioDetails from "../components/portfolios/PortfolioDetails"
 import PortfolioMenu from "../components/UI/PortfolioMenu"
 
+import getContractInfo from "../API/ETH/getContractInfo";
+import ContractsDetails from "../components/ContractDetails/ContractsDetails"
   
 
 const Portfolio = (props) => {
@@ -13,7 +16,7 @@ const Portfolio = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
-        <Card><PortfolioDetails/></Card>
+        <Card><ContractsDetails ContractInfo={getContractInfo}/></Card>
       </div>
 
       <div className={classes.right}>

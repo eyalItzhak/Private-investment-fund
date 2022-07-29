@@ -35,7 +35,6 @@ beforeEach(async () => {
   name = "ultimatePorfit"
   days = 1;
   minimal = 10;
-  // console.log("Attempting to deploy from account", manager);
   inbox = await new web3.eth.Contract(abi)
     .deploy({
       data: evm.bytecode.object,

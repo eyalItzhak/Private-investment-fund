@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../UI/Card";
-import classes from "./PortfolioDetails.module.css";
-import getContractInfo from "../../API/ETH/getContractInfo";
+import classes from "./ContractsDetails.module.css";
+
+
+
+
 //import GetAllContract from "../../API/backend/getAllContract";
 const InvestmentDetails = (props) => {
   let params = useParams();
@@ -13,12 +16,12 @@ const InvestmentDetails = (props) => {
      // const data = await GetAllContract();
       const selected = params.Id;
       console.log("id:=>"+selected);
-      const info = await getContractInfo(selected);
+      const info = await props.ContractInfo(selected);
       console.log(info);
       setData(info);
     };
     runfunc();
-  }, [params.Id]);
+  }, [params,props]);
 
   let renderData = (
     <div className={classes.container}>

@@ -10,7 +10,6 @@ let params = useParams();
     <nav className={classes.nav}>
       <ul>
         <li>
-          {/*to={`/Myinvestments/${props.id}`*/}
           <NavLink to={`/Myinvestments/${params.Id}/Manger`} activeClassName={classes.active}>
             Manager
           </NavLink>

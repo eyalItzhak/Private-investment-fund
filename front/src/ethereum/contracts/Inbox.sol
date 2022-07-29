@@ -47,6 +47,7 @@ contract basic {
         uint approvalCount;
         mapping(address => bool) approvals;
     }
+
     uint penelty = 800; // 800/1000 that what his get
     uint manager_fee = 100; //get 10%
     uint days_start = 20;
@@ -68,9 +69,10 @@ contract basic {
     uint256 public timeStart;
     uint256 public timeToJoin;
     uint256 public timeEnd;
-    bool canBuy;
+    bool    public canBuy;
     //******************************
     Request[] public myRequsts;
+    uint  public listSize;
 
     //for debug
     uint public lastRePay;
@@ -126,7 +128,8 @@ contract basic {
         return true;
     }
 
-    function startContract() public onlyManager  {
+    function startContract() public  { //need to change to only manager
+        //require(numOfInvestors>=numStakeholders); //need to add and chack
         canBuy = true;
         uint totalVal = address(this).balance;
         //   uint p_val = totalVal / 1000;
@@ -183,7 +186,7 @@ contract basic {
         }
     }
 
-    function isStakeholdersApprove(uint reqId, address user)
+    function isStakeholdersApprove(uint reqId, address user) //not need>?
         public
         view
         returns (bool)
@@ -201,6 +204,7 @@ contract basic {
         newRequest.description = why;
         newRequest.value = value;
         newRequest.what = what;
+        listSize++;
     }
 
     function approveRequest(uint index) public onlyStakeholders {

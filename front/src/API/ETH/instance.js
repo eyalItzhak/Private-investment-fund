@@ -3,9 +3,8 @@ import web3 from "../../ethereum/web3";
 import { abi } from "../../ethereum/build/Inbox.json";
 
 //console.log(Inbox)
-function getUserInstance(address) {
-    console.log(address);
+function instance(address) {
   const instance = new web3.eth.Contract(abi, address);
   return instance;
 }
-export default getUserInstance;
+export default instance;

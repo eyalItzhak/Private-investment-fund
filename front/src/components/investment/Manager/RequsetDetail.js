@@ -4,14 +4,14 @@ import Card from "../../UI/Card";
 const RequsetDetail = (props) => {
   // console.log(props.info)
   return (
-    <div className="container" id={props.id}>
+    <div className="container" id={props.index}>
       <Card>
-        <div>id: {props.info.id}</div>
-        <div>stack: {props.info.stack}</div>
-        <div>why: {props.info.why}</div>
-        <div>ammunt: {props.info.ammunt}</div>
-        <div>stat: {props.info.stat}</div>
-        <div>pos: {props.info.pos}</div>
+        <div>id: {props.index}</div>
+        <div>stack: {props.info.what}</div>
+        <div>why: {props.info.description}</div>
+        <div>ammunt: {props.info.value}</div>
+        <div>stat: {props.info.complete+""}</div>
+        <div>pos: {props.info.approvalCount}</div>
         <div>neg: {props.info.neg}</div>
       </Card>
     </div>

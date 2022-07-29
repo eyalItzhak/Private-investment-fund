@@ -1,0 +1,40 @@
+
+"/closeValue"
+
+//getClose value of symbols
+{
+	"symbols":
+	["AAPL",
+	"MSFT",
+	"GOOG"]
+	
+}
+
+
+//Purchase
+{
+	"purchaseInfo":{
+		"contract": "0x90d93Fe231F5b0029ceF185A1E9fbc0407c0E86A",
+		"symbol": "AAPL",
+		"eth": 350
+	}
+	
+}
+
+
+//INSERT CONTRACT
+{
+	"info":
+	{"contract":"0x90d93Fe231F5b0029ceF185A1E9fbc0407c0E86D"}
+}
+
+//Sell 
+{
+	"sellInfo":{
+		"contract": "0x90d93Fe231F5b0029ceF185A1E9fbc0407c0E86K",
+		"symbol": "AAPL",
+		"quantity": 400
+	}
+	
+	
+}

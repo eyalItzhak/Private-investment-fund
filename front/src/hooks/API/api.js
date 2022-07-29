@@ -114,8 +114,7 @@ export async function getRequstToManger(id) {
         neg: 1,
       },
     ];
-  }
-  if (id === "3") {
+  } else {
     data = [
       {
         id: 1,
@@ -146,6 +145,7 @@ export async function getRequstToManger(id) {
       },
     ];
   }
+
   console.log(data);
   return data;
 }

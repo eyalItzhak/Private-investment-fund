@@ -40,6 +40,8 @@ function App() {
           </Route>
 
           <Route path="/Myinvestments/:Id/Manger" exact>
+          {console.log("from APP")}
+          
             <Manager />
           </Route>
 
