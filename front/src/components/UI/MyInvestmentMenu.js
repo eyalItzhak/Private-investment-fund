@@ -6,7 +6,7 @@ const InvestmentMenu = () => {
     <nav className={classes.nav}>
       <ul>
         <li>
-          <NavLink to="/ASD" activeClassName={classes.active}>
+          <NavLink to="/newportfolio" activeClassName={classes.active}>
             create new portfolio
           </NavLink>
         </li>

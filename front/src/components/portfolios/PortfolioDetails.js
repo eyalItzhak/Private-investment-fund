@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Card from "../UI/Card";
 import classes from "./PortfolioDetails.module.css";
-import { getProtfolioInfo } from "../../hooks/API/api";
-
+import getContractInfo from "../../API/ETH/getContractInfo";
+//import GetAllContract from "../../API/backend/getAllContract";
 const InvestmentDetails = (props) => {
   let params = useParams();
   const [data, setData] = useState(false);
 
   useEffect(() => {
     const runfunc = async () => {
-      const selected = parseInt(params.Id);
-      const temp = await getProtfolioInfo(selected);
-      setData(temp);
-      console.log(temp);
+     // const data = await GetAllContract();
+      const selected = params.Id;
+      console.log("id:=>"+selected);
+      const info = await getContractInfo(selected);
+      console.log(info);
+      setData(info);
     };
     runfunc();
   }, [params.Id]);
@@ -21,24 +23,26 @@ const InvestmentDetails = (props) => {
   let renderData = (
     <div className={classes.container}>
       <div className={classes.left}>
-        <Card>contract address {data.contract}</Card>
+        <Card>contract address {data.address}</Card>
         <Card>manager address {data.manager}</Card>
-        <Card>investors {data.numOfInvestor}</Card>
-        <Card>steakholder {data.stackHolderList}</Card> {/*need to fix=> need to implemt not like that...*/}
+        <Card>investors {data.numInvestor}</Card>
+        <Card>steakholder {data.listOfStakeholders}</Card>{" "}
+        {/*need to fix=> need to implemt not like that...*/}
       </div>
       <div className={classes.center}>
-        <div >
-          <Card>yeld {data.yield} </Card>
-          <Card>time created {data.init_time}</Card>
-          <Card>time to end {data.end_time}</Card>
+        <div>
+          <Card>yeld ~~~ </Card>
+          <Card>time created {data.timeCreate}</Card>
+          <Card>time to join {data.timeToJoin}</Card>
+          <Card>time to end {data.timeEnd}</Card>
         </div>
       </div>
       <div className={classes.right}>
         <div>
-          <Card>total investment {data.case_stock+data.case_resrve}</Card>
-          <Card>share {data.case_stock}</Card>
-          <Card>resrve {data.case_resrve}</Card>
-          <Card>contrbution cash {data.startCase}</Card>
+          <Card>total investment ~~~</Card>
+          <Card>share ~~~ </Card>
+          <Card>resrve ~~~ </Card>
+          <Card>contrbution cash ~~~ </Card>
         </div>
       </div>
     </div>

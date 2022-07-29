@@ -52,12 +52,14 @@ contract basic {
     uint days_start = 20;
     uint numStakeholders = 4;
     //*******************************
+    string  public name;
     address public manager;
     address public site;
     mapping(address => bool) public Stakeholders;
     mapping(address => bool) public Stakeholders_endTheContract;
     uint endTheContract_numOfVote = 0;
     address[] public Investors;
+    uint public numOfInvestors=0;
     mapping(address => uint) public Investment;
     mapping(address => uint) public ownPercent; // ex 50 = 5% , 2 = 0.2% ...
     mapping(address => bool) public lefted;
@@ -93,8 +95,10 @@ contract basic {
         uint minimum,
         uint256 num_days,
         address creator,
-        address sentTo
+        address sentTo,
+        string memory contractName
     ) {
+        name=contractName;
         site = sentTo;
         manager = creator;
         minimumContribution = minimum;
@@ -113,6 +117,7 @@ contract basic {
         if (myInvest == 0) {
             require(msg.value >= minimumContribution);
             Investors.push(msg.sender);
+            numOfInvestors++;
         }
         Investment[msg.sender] = myInvest + msg.value;
     }
@@ -121,7 +126,7 @@ contract basic {
         return true;
     }
 
-    function startContract() public {
+    function startContract() public onlyManager  {
         canBuy = true;
         uint totalVal = address(this).balance;
         //   uint p_val = totalVal / 1000;
@@ -234,6 +239,7 @@ contract basic {
             lefted[leave_address] = true;
             lastRePay = value;
             fixPercent(myPercent);
+            numOfInvestors--;
             return true;
         } else {
             return false;

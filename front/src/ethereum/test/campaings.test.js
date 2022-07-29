@@ -2,17 +2,17 @@ const assert = require("assert"); //for the tests
 const ganache = require("ganache"); //provider local network with 10 accounts
 const Web3 = require("web3");
 
-const provider = ganache.provider({ 
+const provider = ganache.provider({
   logging: {
     logger: {
-      log: () => {} // don't do anything
-    }
-  }
+      log: () => {}, // don't do anything
+    },
+  },
 });
 const OPTIONS = {
   defaultBlock: "latest",
   transactionConfirmationBlocks: 1,
-  transactionBlockTimeout: 5
+  transactionBlockTimeout: 5,
 };
 const web3 = new Web3(provider, null, OPTIONS);
 
@@ -26,18 +26,20 @@ let site;
 let days;
 let minimal;
 let inbox;
+let name;
 
 beforeEach(async () => {
   accounts = await web3.eth.getAccounts();
   site = accounts[0];
   manager = accounts[1];
+  name = "ultimatePorfit"
   days = 1;
   minimal = 10;
- // console.log("Attempting to deploy from account", manager);
+  // console.log("Attempting to deploy from account", manager);
   inbox = await new web3.eth.Contract(abi)
     .deploy({
       data: evm.bytecode.object,
-      arguments: [minimal, days, manager, site],
+      arguments: [minimal, days, manager, site,name],
     })
     .send({ from: manager, gas: 5000000 });
 });
@@ -141,7 +143,6 @@ describe("Simple tests", () => {
     //excuted the request
     req = await inbox.methods.myRequsts(0).call();
     assert.ok(!req.complete);
-    // console.log("###"+req.value)
     let sitBalanceBefor = await web3.eth.getBalance(site);
     await inbox.methods.executed_order_66(0).send({
       from: manager,
@@ -170,20 +171,7 @@ describe("Simple tests", () => {
     assert.ok(
       parseInt(account_9_percentBefor) + 10 === parseInt(account_9_percentAfter)
     ); //account_9_percentBefor=181,account_9_percentAfter=191,account 2 that left have 54 =>181*1000/1000-54=new_pececnt.
-    // console.log("after:!!!"+account_9_percentAfter+ "before:!!!"+account_9_percentBefor);
-    // console.log("befor account 2:=>"+account_2_pecentBefor);
-    // let contractBalanceAfter=await web3.eth.getBalance(inbox.options.address);
-    // let accoutn2BalanceAfter=await web3.eth.getBalance(accounts[2]);
-    // let val = await inbox.methods.lastTotalVal().call();
-    // let total_val = await inbox.methods.lastRePay().call();
-    // let per = await inbox.methods.ownPercent(accounts[2]).call();
-    // console.log("******myval "+val+"******");
-    // console.log("******myPecent: "+per)
-    // console.log("******myTotalVal "+total_val+"******");
-    // console.log("contract balance ="+contractBalanceBefore);
-    // console.log("contract balance after ="+contractBalanceAfter);
-    // console.log("account balance ="+accoutn2BalanceBefore);
-    // console.log("account balance after ="+accoutn2BalanceAfter);
+
     assert.ok(inbox.methods.Stakeholders_endTheContract(accounts[2]).call());
     //payday excuded
     let accoutnsBalancesBefore = [];

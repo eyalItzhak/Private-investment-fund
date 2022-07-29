@@ -15,6 +15,7 @@ import InvetorPage from "./pages/investorPage"
 import AllPortfolios from "./pages/AllPortfolios"
 import Portfolio from "./pages/Portfolio"
 import MakeInvestmentForm from "./pages/MakeInvestmentForm"
+import Newportfolio from "./pages/Newportfolio"
 
 const WelcomePage = React.lazy(() => import("./pages/WelcomePage.js"));
 
@@ -54,11 +55,16 @@ function App() {
             <AllPortfolios/>
           </Route>
 
-          <Route path="/portfolios/:id" exact>
+          <Route path="/newportfolio" exact>
+            <Newportfolio/>
+          </Route>
+
+
+          <Route path="/portfolios/:Id" exact>
             <Portfolio/>
           </Route>
           
-          <Route path="/portfolios/:id/InvestmentForm" exact>
+          <Route path="/portfolios/:Id/InvestmentForm" exact>
             <MakeInvestmentForm/>
           </Route>
 

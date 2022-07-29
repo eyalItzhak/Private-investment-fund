@@ -1,0 +1,26 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.10",
+    "assert": "^2.0.0",
+    "fs-extra": "^10.1.0",
+    "ganache": "^7.3.2",
+    "ganache-cli": "^6.12.2",
+    "mocha": "^10.0.0",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "npm": "^8.13.2",
+    "solc": "^0.8.15",
+    "uuid": "^8.3.2",
+    "web3": "^1.7.4"
+  }
+}
