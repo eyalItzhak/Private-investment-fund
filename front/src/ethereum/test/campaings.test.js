@@ -121,23 +121,23 @@ describe("Simple tests", () => {
     assert.ok(req.value == "1000");
 
     //3/4 stackHolders aproves
-    await inbox.methods.approveRequest(0).send({
+    await inbox.methods.approveRequest(0,true).send({
       from: accounts[9],
       gas: gas,
     });
-    await inbox.methods.approveRequest(0).send({
+    await inbox.methods.approveRequest(0,true).send({
       from: accounts[8],
       gas: gas,
     });
-    await inbox.methods.approveRequest(0).send({
+    await inbox.methods.approveRequest(0,true).send({
       from: accounts[7],
       gas: gas,
     });
-    assert.ok(await inbox.methods.isStakeholdersApprove(0, accounts[9]).call());
-    assert.ok(await inbox.methods.isStakeholdersApprove(0, accounts[8]).call());
-    assert.ok(await inbox.methods.isStakeholdersApprove(0, accounts[7]).call());
+    assert.ok(await inbox.methods.isStakeholdersVoted(0, accounts[9]).call());
+    assert.ok(await inbox.methods.isStakeholdersVoted(0, accounts[8]).call());
+    assert.ok(await inbox.methods.isStakeholdersVoted(0, accounts[7]).call());
     assert.ok(
-      !(await inbox.methods.isStakeholdersApprove(0, accounts[6]).call())
+      !(await inbox.methods.isStakeholdersVoted(0, accounts[6]).call())
     );
     //excuted the request
     req = await inbox.methods.myRequsts(0).call();

@@ -5,7 +5,7 @@ import NewRequset from "./NewRequest"
 import RequestStatus from "./RequestStatus";
 import StartWorkPriod from "./StartWorkPriod"
 
-const ManagerOptions = () => {
+const ManagerOptions = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.left}>
@@ -13,7 +13,7 @@ const ManagerOptions = () => {
         <Card><StartWorkPriod/></Card>
       </div>
       <div className={classes.right}>
-        <Card><RequestStatus/></Card>
+        <Card><RequestStatus isManager={props.isManager}/></Card>
       </div>
     </div>
   );

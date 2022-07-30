@@ -71,7 +71,7 @@ app.post("/purchase", async (req, res) => {
 
 
   var ethInUsd = await getEthInUsd();
-  var quantityApproved = parseInt(ethInUsd/stocksCloseNow);
+  var quantityApproved = parseInt(eth*ethInUsd/stocksCloseNow);
   var approvePurchase = quantityApproved >= 1;
 
 
@@ -103,7 +103,6 @@ app.post("/purchase", async (req, res) => {
 
 app.post("/sell", (req, res) => {
   const { sellInfo } = req.body;
-
 
   const contract = sellInfo.contract;
   const symbol = sellInfo.symbol;

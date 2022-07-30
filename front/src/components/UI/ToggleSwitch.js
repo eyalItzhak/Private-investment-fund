@@ -1,13 +1,19 @@
 import "./Card.module.css";
 import "./ToggleSwtich.scss";
 const ToggleSwtich = (props) => {
-  return (
-    
-      <label className="switch-wrap">
-        <input type="checkbox" />
+
+
+  const Checkbox = ({value, onChange }) => {
+    return (
+        <label className="switch-wrap">
+         <input type="checkbox" checked={value} onChange={onChange} />
         <div className="switch"></div>
       </label>
-
+    );
+  };
+  
+  return ( 
+    <Checkbox value={props.value} onChange={props.onChange}/>
   );
 };
 

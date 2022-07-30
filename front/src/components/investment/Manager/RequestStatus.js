@@ -2,11 +2,11 @@
 import { useState, useEffect } from "react";
 //import Card from "../../UI/Card";
 import classes from "./RequestStatus.module.css";
-import { getRequstToManger } from "../../../hooks/API/api";
 import { useParams } from "react-router-dom";
 import RequsetDetail from "./RequsetDetail";
-import ToggleSwtich from "../../UI/ToggleSwitch";
+//import ToggleSwtich from "../../UI/ToggleSwitch";
 import getReqests from "../../../API/ETH/getReqests";
+//import ExcutedRequest from "./ExecutedRequest";
 
 const RequestStatus = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +14,7 @@ const RequestStatus = (props) => {
   let params = useParams();
   useEffect(() => {
     const runfunc = async () => {
-     // let listOfRequsets = await getRequstToManger(params.Id);
+      // let listOfRequsets = await getRequstToManger(params.Id);
       console.log("req=>" + params.Id);
       let req = await getReqests(params.Id);
       setIsLoading(false);
@@ -26,12 +26,12 @@ const RequestStatus = (props) => {
   return (
     <div className={classes.container}>
       {isLoading && <div>loading</div>}
-      {data.map((Request,index) => (
-        <div key={index}>
-          <div className={classes.container}>
-            <RequsetDetail info={Request} index={index} />
-           <ToggleSwtich />
-          </div>
+      {data.map((Request, index) => (
+        <div className={classes.container} key={index}>
+          <div>
+          <RequsetDetail info={Request} index={index} isManager={props.isManager} />
+           {/*props.isManager&&<ExcutedRequest/>*/}
+           </div>
         </div>
       ))}
     </div>

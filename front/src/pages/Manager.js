@@ -13,7 +13,7 @@ const Manager = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
-        <Card><ManagerOptions/></Card>
+        <Card><ManagerOptions isManager={true} /></Card>
       </div>
 
       <div className={classes.right}>

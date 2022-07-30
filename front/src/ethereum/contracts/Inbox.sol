@@ -128,7 +128,7 @@ contract basic {
         return true;
     }
 
-    function startContract() public  { //need to change to only manager
+    function startContract() public onlyManager  { //need to change to only manager
         //require(numOfInvestors>=numStakeholders); //need to add and chack
         canBuy = true;
         uint totalVal = address(this).balance;
@@ -186,14 +186,7 @@ contract basic {
         }
     }
 
-    function isStakeholdersApprove(uint reqId, address user) //not need>?
-        public
-        view
-        returns (bool)
-    {
-        Request storage req = myRequsts[reqId];
-        return req.approvals[user];
-    }
+  
 
     function makeNewRequset(
         string memory what,
@@ -207,12 +200,27 @@ contract basic {
         listSize++;
     }
 
-    function approveRequest(uint index) public onlyStakeholders {
+    function requestIsVoted(uint index) public view returns(bool){ //by msg sender
+        Request storage request = myRequsts[index];
+        return request.approvals[msg.sender];
+    }
+     function isStakeholdersVoted(uint reqId, address user) //by address
+        public
+        view
+        returns (bool)
+    {
+        Request storage req = myRequsts[reqId];
+        return req.approvals[user];
+    }
+
+    function approveRequest(uint index, bool res) public onlyStakeholders {
         //need to cheak is stackholder
         Request storage request = myRequsts[index];
         require(!request.approvals[msg.sender]);
         request.approvals[msg.sender] = true;
-        request.approvalCount++;
+        if(res==true){
+            request.approvalCount++;
+        }
     }
 
     function executed_order_66(uint index)

@@ -1,5 +1,5 @@
 import classes from "./InvestorOptions.module.css";
-import { getPesonalInfo } from "../../../hooks/API/api";
+import { getPesonalInfo } from "../../../hooks/API/api.js";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Details from "./Details";
