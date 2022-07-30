@@ -1,4 +1,4 @@
-// import web3 from "../../ethereum/web3";
+import web3 from "../../ethereum/web3";
 // import { abi, evm } from "../../ethereum/build/Inbox.json";
 import instance from "./instance";
 
@@ -38,6 +38,8 @@ async function getContractInfo(address) {
   const timeToJoin = await myInstance.methods.timeToJoin().call();
   const timeEnd = await myInstance.methods.timeEnd().call();
 
+  const reserve = await web3.eth.getBalance(myInstance.options.address);
+
   const data = {
     address: myAddres,
     manager: manager,
@@ -46,6 +48,7 @@ async function getContractInfo(address) {
     timeCreate: myDate(timeCreate),
     timeToJoin: myDate(timeToJoin),
     timeEnd: myDate(timeEnd),
+    reserve:reserve,
   };
 
   return data;

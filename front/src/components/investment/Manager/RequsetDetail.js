@@ -1,5 +1,5 @@
 import Card from "../../UI/Card";
-
+//import ToggleSwtich from "../../UI/ToggleSwitch";
 
 const RequsetDetail = (props) => {
   // console.log(props.info)
@@ -13,6 +13,7 @@ const RequsetDetail = (props) => {
         <div>stat: {props.info.complete+""}</div>
         <div>pos: {props.info.approvalCount}</div>
         <div>neg: {props.info.neg}</div>
+       
       </Card>
     </div>
   );
