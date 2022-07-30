@@ -24,13 +24,13 @@ const RequestStatus = (props) => {
   }, [params.Id]);
 
   return (
-    <div className={classes.portfolios}>
+    <div className={classes.container}>
       {isLoading && <div>loading</div>}
       {data.map((Request,index) => (
         <div key={index}>
           <div className={classes.container}>
             <RequsetDetail info={Request} index={index} />
-            y <ToggleSwtich /> n<ToggleSwtich />
+           <ToggleSwtich />
           </div>
         </div>
       ))}

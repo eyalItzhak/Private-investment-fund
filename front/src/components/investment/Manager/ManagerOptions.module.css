@@ -2,3 +2,10 @@
     display: flex;
     justify-content:  space-between;
 }
+
+.left{
+    flex: 25%;
+}  
+.right{
+    flex: 75%;
+} 
