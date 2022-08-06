@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ContractItem from "./ContractsItems";
 //import getAllContract from "../../../API/backend/getAllContract"
 
+
 const PortfoliosList = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -19,7 +20,9 @@ const PortfoliosList = (props) => {
     <div className={classes.portfolios}>
       {isLoading && <div>loading</div>}
       {data.map((portfolio) => (
+        
         <div key={portfolio.contract}>
+          {console.log(portfolio)}
           <ContractItem name={portfolio.contract} id={portfolio.contract} to={props.to} />
         </div>
       ))}

@@ -23,11 +23,6 @@ const MainNavigation = (props) => {
               All portfolios
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/currentmarket" activeClassName={classes.active}>
-              current market
-            </NavLink>
-          </li>
         </ul>
       </nav>
     </header>

@@ -45,7 +45,6 @@ beforeEach(async () => {
 
 describe("Simple tests", () => {
   const amaunt_whi = 10000000000000000000;
-  const amaunt_eth = 2;
   const gas = "1000000";
 
   it("deploy a inbox", async () => {
@@ -160,6 +159,8 @@ describe("Simple tests", () => {
       .ownPercent(accounts[9])
       .call();
     //let account_2_pecentBefor=await inbox.methods.ownPercent(accounts[2]).call()
+    let total_percent_befor = await inbox.methods.allInvestorPercent().call();
+    console.log(total_percent_befor);
     await inbox.methods.leave_contract(accounts[2], 1000000000).send({
       from: site,
       gas: gas,
@@ -191,15 +192,17 @@ describe("Simple tests", () => {
     }
 
     let contractBalance = await web3.eth.getBalance(inbox.options.address);
-    let balance = await inbox.methods.investorBalanc().call();
+ 
+    // let balance = await inbox.methods.investorBalanc().call();
+
 
     await inbox.methods.payDay().send({
       from: site,
       gas: gas,
     });
     let managerFee = await inbox.methods.managerFineFee().call();
-    //let total_percent = await inbox.methods.allInvestorPercent().call();
-
+    let total_percent = await inbox.methods.allInvestorPercent().call();
+    console.log(total_percent);
     let rasio = parseFloat(managerFee) / parseFloat(contractBalance); //manager get 10% extra
     assert.ok(rasio <= 0.11);
     assert.ok(rasio >= 0.09);

@@ -4,12 +4,14 @@ import classes from "./ManagerOptions.module.css";
 import NewRequset from "./NewRequest"
 import RequestStatus from "./RequestStatus";
 import StartWorkPriod from "./StartWorkPriod"
+import SellMenu from "./SellMenu";
 
 const ManagerOptions = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.left}>
         <Card><NewRequset/></Card>
+        <Card><SellMenu/></Card>
         <Card><StartWorkPriod/></Card>
       </div>
       <div className={classes.right}>

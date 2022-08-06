@@ -18,7 +18,7 @@ const Myinvestments = (props) => {
         <Card><ContractsList getContracts={getAllContract} to={"portfolios"}/></Card>
       </div>
       <div className={classes.right}>
-        <Card><BaseOptionMenu/><hr className={classes.hr}/></Card>
+        <Card>  <div className={classes.high}><BaseOptionMenu/><hr className={classes.hr}/></div></Card>
       </div>
     </div>
   );

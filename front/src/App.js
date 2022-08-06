@@ -7,15 +7,14 @@ import { Route, Redirect } from "react-router-dom";
 
 import Layout from "./components/layout/layout";
 import Myinvestments from "./pages/MyInvestments";
-import MarketPage from "./pages/MarketPage";
 import Investment from "./pages/Investment"
 import Manager from "./pages/Manager";
 import Stakeholder  from "./pages/Stakeholder";
 import InvetorPage from "./pages/investorPage"
 import AllPortfolios from "./pages/AllPortfolios"
 import Portfolio from "./pages/Portfolio"
-import MakeInvestmentForm from "./pages/MakeInvestmentForm"
 import Newportfolio from "./pages/Newportfolio"
+import MakeInvestmentForm from "./pages/MakeInvestmentForm"
 
 const WelcomePage = React.lazy(() => import("./pages/WelcomePage.js"));
 
@@ -65,17 +64,10 @@ function App() {
           <Route path="/portfolios/:Id" exact>
             <Portfolio/>
           </Route>
-          
+
           <Route path="/portfolios/:Id/InvestmentForm" exact>
             <MakeInvestmentForm/>
-          </Route>
-
-        <Route path="/currentmarket" exact>
-           <MarketPage/> 
-        </Route>
-        
-
-        
+          </Route>  
 
       </Suspense>
     </Layout>

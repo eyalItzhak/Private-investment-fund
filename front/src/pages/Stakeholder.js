@@ -18,7 +18,7 @@ const Manager = (props) => {
       </div>
 
       <div className={classes.right}>
-        <Card><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/><hr className={classes.hr}/><Repayment/></Card>
+        <Card><div className={classes.high}><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/><hr className={classes.hr}/><Repayment/></div></Card>
       </div>
     </div>
   );

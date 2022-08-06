@@ -48,7 +48,6 @@ const RequsetDetail = (props) => {
         <div>ammunt: {props.info.value}</div>
         <div>stat: {props.info.complete + ""}</div>
         <div>pos: {props.info.approvalCount}</div>
-        <div>neg: {props.info.neg}</div>
         {!props.isManager && <Select options={options}  onChange={setUserResponse} />}
         {!props.isManager && (
           <div className={classes.row}>

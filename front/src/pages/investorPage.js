@@ -12,11 +12,11 @@ const investorPage = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
-        <Card><InvestorOptions/></Card>
+        <Card><div className={classes.high}><InvestorOptions/></div></Card>
       </div>
 
       <div className={classes.right}>
-        <Card><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/></Card>
+        <Card><div className={classes.high}><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/></div></Card>
       </div>
     </div>
   );

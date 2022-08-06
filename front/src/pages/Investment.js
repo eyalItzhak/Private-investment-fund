@@ -1,6 +1,6 @@
 //import React ,{useEffect} from "react";
 import Card from "../components/UI/Card";
-import classes from "./MarketPage.module.css";
+import classes from "./Investment.module.css";
 import BaseOptionMenu from "../components/UI/BaseOptionMenu"
 //import InvestmentDetails from "../components/investment/InvestmentDetails"
 import InvestmentMenu from "../components/UI/InvestmentMenu"
@@ -14,11 +14,11 @@ const Investment = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
-      <Card><ContractsDetails ContractInfo={getContractInfo}/></Card>
+      <Card><div className={classes.high}><ContractsDetails ContractInfo={getContractInfo}/></div></Card>
       </div>
 
       <div className={classes.right}>
-        <Card><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/><hr className={classes.hr}/></Card>
+        <Card><div className={classes.high}><BaseOptionMenu/><hr className={classes.hr}/><InvestmentMenu/><hr className={classes.hr}/></div></Card>
       </div>
     </div>
   );

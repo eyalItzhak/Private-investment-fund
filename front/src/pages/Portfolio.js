@@ -16,11 +16,11 @@ const Portfolio = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
-        <Card><ContractsDetails ContractInfo={getContractInfo}/></Card>
+        <Card><div className={classes.high} ><ContractsDetails ContractInfo={getContractInfo}/></div></Card>
       </div>
 
       <div className={classes.right}>
-        <Card><BaseOptionMenu/><hr className={classes.hr}/><PortfolioMenu/></Card>
+        <Card><div className={classes.high} ><BaseOptionMenu/><hr className={classes.hr}/><PortfolioMenu/></div></Card>
       </div>
     </div>
   );

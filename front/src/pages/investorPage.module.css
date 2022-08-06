@@ -9,3 +9,6 @@
  .right{
      flex: 25%;
  } 
+ .high{
+    min-height: 600px;
+} 

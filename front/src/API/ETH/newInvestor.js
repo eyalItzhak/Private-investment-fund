@@ -8,9 +8,6 @@ async function newInvestor(invest,address) {
     const user = accounts[0];
     const myInstance = instance(address);
 
-    // console.log("to => "+address)
-    // console.log("from => "+accounts[0])
-    // console.log("ammount => "+invest)
 
     await myInstance.methods.join().send({
         value: "" + (invest),

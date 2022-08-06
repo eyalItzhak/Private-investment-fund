@@ -2,6 +2,7 @@ import web3 from "../../ethereum/web3";
 // import { abi, evm } from "../../ethereum/build/Inbox.json";
 import instance from "./instance";
 
+
 const myDate = function dateFormat(timestamp) {
   let unix_timestamp = timestamp;
   var date = new Date(unix_timestamp * 1000);
@@ -34,11 +35,21 @@ async function getContractInfo(address) {
       }
     }
   }
+
+
+  //const repaymentVote= await myInstance.methods.endTheContract_numOfVote().call();need to deploy new contract
   const timeCreate = await myInstance.methods.timeStart().call();
   const timeToJoin = await myInstance.methods.timeToJoin().call();
   const timeEnd = await myInstance.methods.timeEnd().call();
 
   const reserve = await web3.eth.getBalance(myInstance.options.address);
+
+
+  const voteYes = await myInstance.methods.endTheContract_numOfVote().call();
+  const count = await myInstance.methods.numStakeholders().call();
+  const endContractVote=voteYes + "/" + count;
+  
+  const canBuy=await myInstance.methods.canBuy().call();
 
   const data = {
     address: myAddres,
@@ -49,6 +60,8 @@ async function getContractInfo(address) {
     timeToJoin: myDate(timeToJoin),
     timeEnd: myDate(timeEnd),
     reserve:reserve,
+    vote:endContractVote,
+    canBuy:canBuy
   };
 
   return data;

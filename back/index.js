@@ -101,6 +101,8 @@ app.post("/purchase", async (req, res) => {
 });
 
 
+//addres=>get his share
+
 app.post("/sell", (req, res) => {
   const { sellInfo } = req.body;
 

@@ -7,11 +7,11 @@ const WelcomePage = (props) => {
   return (
     <div className={classes.row}>
       <div className={classes.left}>
-        <Card><p>some word about us asdasd</p></Card>
+        <Card><div className={classes.high}><p>some word about us asdasd</p></div></Card>
       </div>
 
       <div className={classes.right}>
-        <Card><BaseOptionMenu/></Card>
+        <Card><div className={classes.high}><BaseOptionMenu/></div></Card>
       </div>
     </div>
   );

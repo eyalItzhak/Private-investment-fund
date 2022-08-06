@@ -20,11 +20,6 @@ const BaseOptionMenu = () => {
             All portfolios
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/currentmarket" activeClassName={classes.active}>
-            current market
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );

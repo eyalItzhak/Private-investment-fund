@@ -20,11 +20,6 @@ const InvestmentDetails = (props) => {
     runfunc();
   }, [params, props]);
 
-  // {data.map((portfolio) => (
-  //   <div key={portfolio.contract}>
-  //     <ContractItem name={portfolio.contract} id={portfolio.contract} to={props.to} />
-  //   </div>
-  // ))}
 
   let renderData = (renderfunc) => (
     <div className={classes.container}>
@@ -44,7 +39,7 @@ const InvestmentDetails = (props) => {
       </div>
       <div className={classes.center}>
         <div>
-          <Card>yeld ~~~ </Card>
+          <Card>repaymentVote  {data.vote} </Card>
           <Card>time created {data.timeCreate}</Card>
           <Card>time to join {data.timeToJoin}</Card>
           <Card>time to end {data.timeEnd}</Card>

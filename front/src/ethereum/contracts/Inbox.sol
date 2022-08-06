@@ -13,29 +13,33 @@ contract basic {
     }
 
     modifier onlySite() {
-        require(msg.sender == site);
+        require(msg.sender == site); 
         _;
     }
 
     modifier JoinPeriod() {
         require(canBuy == false);
+        //time <timeToJoin
         _;
     }
 
     modifier WorkPeriodSetUp() {
         //for cheak we set up || for cheak and move for workpriod time
         require((canBuy == false));
+           //and time>timeToJoin
         _;
     }
 
     modifier workPeriod() {
         require((canBuy == true));
+         //and time>timeToJoin&&time<timeToEnd
         _;
     }
     modifier EndPeriod() {
         require(
             (endTheContract_numOfVote >= numStakeholders / 2) || canBuy == false
         );
+        //or time>timeToEnd
         _;
     }
 
@@ -47,23 +51,26 @@ contract basic {
         uint approvalCount;
         mapping(address => bool) approvals;
     }
-
-    uint penelty = 800; // 800/1000 that what his get
-    uint manager_fee = 100; //get 10%
-    uint days_start = 20;
-    uint numStakeholders = 4;
+    uint public percent = 1000;
+    uint public penelty = 800; // 800/1000 that what his get
+    uint public manager_fee = 100; //get 10%
+    uint public days_start = 20;
+    uint public numStakeholders = 4;
     //*******************************
     string  public name;
     address public manager;
     address public site;
+
     mapping(address => bool) public Stakeholders;
     mapping(address => bool) public Stakeholders_endTheContract;
-    uint endTheContract_numOfVote = 0;
+    uint  public endTheContract_numOfVote = 0;
+
     address[] public Investors;
     uint public numOfInvestors=0;
     mapping(address => uint) public Investment;
     mapping(address => uint) public ownPercent; // ex 50 = 5% , 2 = 0.2% ...
     mapping(address => bool) public lefted;
+    
     uint public minimumContribution;
     //*******************************
     uint256 public timeStart;
@@ -111,7 +118,7 @@ contract basic {
     }
 
     function investorBalanc() public view returns (uint) {
-        return ((address(this).balance)*(1000-manager_fee)/1000);
+        return ((address(this).balance)*(percent-manager_fee)/percent);
     }
 
     function join() public payable JoinPeriod {
@@ -137,7 +144,7 @@ contract basic {
         for (uint i = 0; i < Investors.length; i++) {
             address temp_investor = Investors[i];
             ammunt = Investment[temp_investor];
-            ownPercent[temp_investor] = ((((ammunt) * 1000) / totalVal)); //127 =12.7%...
+            ownPercent[temp_investor] = ((((ammunt) * percent) / totalVal)); //127 =12.7%...
         }
         setStakeholders();
     }
@@ -241,9 +248,10 @@ contract basic {
         uint yield //get the total value of the portfolios (yield)
     ) public workPeriod onlySite returns (bool) {
         require(Stakeholders[msg.sender] == false); //currently Stakeholders cannot leave =>if we want to implement that stakeholder can leave we need to caculate who is the next stakholder in line....
+        require(leave_address != manager); 
         uint myPercent = ownPercent[leave_address];
         uint totalValue = yield + investorBalanc();
-        uint value = ((((totalValue * myPercent) / 1000) * penelty) / 1000);
+        uint value = ((((totalValue * myPercent) / percent) * penelty) / percent);
         lastTotalVal = value;
         if (value <= address(this).balance) {
             lastLeaveVal=lastTotalVal; //for debug
@@ -259,11 +267,11 @@ contract basic {
     }
 
     function fixPercent(uint leftPercent) private {
-        uint totalPercented = 1000 - leftPercent;
+        uint totalPercented = percent - leftPercent;
         for (uint i = 0; i < Investors.length; i++) {
             address user = Investors[i];
             if (lefted[user] == false) {
-                uint newVal = ((ownPercent[user] * 1000) / totalPercented);
+                uint newVal = ((ownPercent[user] * percent) / totalPercented);
                 ownPercent[user] = newVal;
             }
         }
@@ -286,7 +294,7 @@ contract basic {
             address investor = Investors[i];
             if (lefted[investor] == false) {
                 uint myPercent = ownPercent[investor];
-                uint value = (myPercent * the_balance) / 1000;
+                uint value = (myPercent * the_balance) / percent;
                 payable(investor).transfer(value);
                 //sum=sum+value;
             }
