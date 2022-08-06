@@ -136,6 +136,7 @@ app.post("/sell", (req, res) => {
 app.get("/getContractsInvestedStocks", (req, res) => {
   const { info } = req.body;
   var contract = info.contract;
+  console.log("get");
 
   let sql = `SELECT * FROM contracts_stocks where contract = ?`;
 

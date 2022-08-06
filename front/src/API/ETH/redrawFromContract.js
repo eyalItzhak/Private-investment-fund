@@ -5,6 +5,7 @@ import instance_site from "./instance_site"
 //import requestResponse from "./requestResponse"
 
 async function redraw(address) {
+  console.log("leave from =>" +address);
   const gas = "1000000";
   const accounts_site = await web3_site.eth.getAccounts();
   const accounts_user = await web3.eth.getAccounts();

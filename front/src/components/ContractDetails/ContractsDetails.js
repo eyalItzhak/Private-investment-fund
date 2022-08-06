@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../UI/Card";
 import classes from "./ContractsDetails.module.css";
+import web3 from "web3"
 
 //import GetAllContract from "../../API/backend/getAllContract";
 const InvestmentDetails = (props) => {
@@ -50,6 +51,7 @@ const InvestmentDetails = (props) => {
           <Card>total investment ~~~</Card>
           <Card>share ~~~ </Card>
           <Card>resrve {data.reserve} </Card>
+          <Card>minimal {data.minimal}</Card>
         </div>
       </div>
     </div>

@@ -1,16 +1,4 @@
-// //import Card from "../../UI/Card";
-// import classes from "./Repayment.module.css";
 
-// const Repayment = (props) => {
-
-//   return (
-//        <a href="/" className={classes.button}>Repayment</a>
-//   );
-// };
-
-// export default Repayment;
-
-//import Card from "../../UI/Card";
 import classes from "./Repayment.module.css";
 import repayment from "../../../API/ETH/repayment";
 import { useParams } from "react-router-dom";
@@ -26,7 +14,7 @@ const Repayment = (props) => {
 
   return (
     <button onClick={handleClick} className={classes.button}>
-      Repayment
+      vote for end contract
     </button>
   );
 };

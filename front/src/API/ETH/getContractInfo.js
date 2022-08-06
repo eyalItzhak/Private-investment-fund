@@ -1,7 +1,8 @@
 import web3 from "../../ethereum/web3";
 // import { abi, evm } from "../../ethereum/build/Inbox.json";
 import instance from "./instance";
-
+// import getContractValueSQL from "../backend/getContractValueSQL"
+//  import getContractTotalvAL from "../backend/getContractTotalVal"
 
 const myDate = function dateFormat(timestamp) {
   let unix_timestamp = timestamp;
@@ -51,6 +52,12 @@ async function getContractInfo(address) {
   
   const canBuy=await myInstance.methods.canBuy().call();
 
+  //no eth raltion ... 
+//  const shareValue = getContractValueSQL(address);
+//  const total_Val= await getContractTotalvAL(address);
+
+  const mini=await myInstance.methods.minimumContribution().call();
+
   const data = {
     address: myAddres,
     manager: manager,
@@ -61,7 +68,9 @@ async function getContractInfo(address) {
     timeEnd: myDate(timeEnd),
     reserve:reserve,
     vote:endContractVote,
-    canBuy:canBuy
+    canBuy:canBuy,
+    minimal:mini
+   // shareValue:shareValue
   };
 
   return data;

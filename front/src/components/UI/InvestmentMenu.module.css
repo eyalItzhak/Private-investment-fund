@@ -21,4 +21,9 @@
   .nav a.active {
     color: #e6fcfc;
   }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+   }
   

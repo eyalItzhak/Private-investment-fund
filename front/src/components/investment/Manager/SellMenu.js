@@ -13,6 +13,7 @@ const SellMenu = (props) => {
     event.preventDefault();
     console.log(params.Id);
     sellSharesSQL(stock, ammaunt, params.Id);
+    //NEED TO SENT BACK MONEY TO CONTRACT
   };
 
   return (
