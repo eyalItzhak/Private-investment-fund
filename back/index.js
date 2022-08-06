@@ -55,7 +55,7 @@ app.get("/getAllContracts", (req, res) => {
     }
     res.send(results);
   });
-  connection.end();
+//  connection.end();
 });
 
 
@@ -93,7 +93,7 @@ app.post("/purchase", async (req, res) => {
         res.send("Successfuly purchased.");
       }
     });
-    // connection.end();
+   // connection.end();
   } else {
     res.send("not enough money to purchase even 1 stock.");
   }
@@ -101,9 +101,10 @@ app.post("/purchase", async (req, res) => {
 });
 
 
+//addres=>get his share
+
 app.post("/sell", (req, res) => {
   const { sellInfo } = req.body;
-
 
   const contract = sellInfo.contract;
   const symbol = sellInfo.symbol;
@@ -128,53 +129,5 @@ app.post("/sell", (req, res) => {
     }
   });
 
-  // connection.end();
-});
-
-app.get("/getContractsInvestedStocks", (req, res) => {
-  const { info } = req.body;
-  var contract = info.contract;
-
-  let sql = `SELECT * FROM contracts_stocks where contract = ?`;
-
-  connection.query(sql,contract, async(error, results, fields) => {
-    if (error) {
-      return console.error(error.message);
-    }
-    for (let i = 0; i < results.length; i++) {
-      var stockCloseDict = await getStocksCloseArray([results[i]["symbol"]]);
-      var stocksCloseNow = getStockCloseNow(stockCloseDict, results[i]["symbol"]);
-      results[i]["currentRate"] = stocksCloseNow;
-    }
-    
-    res.send(results);
-  });
-  // connection.end();
-});
-
-
-app.get("/getContractsValue", (req, res) => {
-  const { info } = req.body;
-  var contract = info.contract;
-
-  let sql = `SELECT symbol, quantity 
-  FROM usersdb.contracts_stocks 
-  where contract = ?`;
-
-  connection.query(sql,contract, async(error, results, fields) => {
-    if (error) {
-      return console.error(error.message);
-    }
-    var totalContractValueUSD = 0;
-    for (let i = 0; i < results.length; i++) {
-      var stockCloseDict = await getStocksCloseArray([results[i]["symbol"]]);
-      var stocksCloseNow = getStockCloseNow(stockCloseDict, results[i]["symbol"]);
-      var totalSymbolValue = (stocksCloseNow * (results[i]["quantity"]));
-      totalContractValueUSD = totalContractValueUSD + totalSymbolValue;
-    }
-    var ethInUsd = await getEthInUsd();
-    var totalContractValueETH = totalContractValueUSD / ethInUsd;
-    res.send({"totalContractValueETH":totalContractValueETH});
-  });
-  // connection.end();
+//  connection.end();
 });
