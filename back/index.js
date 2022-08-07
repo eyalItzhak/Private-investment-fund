@@ -54,10 +54,12 @@ app.get("/getAllContracts", (req, res) => {
   connection.query(sql, (error, results, fields) => {
     if (error) {
       return console.error(error.message);
+    }else{
+      res.send(results);
     }
-    res.send(results);
+    
   });
-  connection.end();
+  // connection.release();
 });
 
 app.post("/purchase", async (req, res) => {
@@ -91,7 +93,7 @@ app.post("/purchase", async (req, res) => {
         res.send("Successfully purchased.");
       }
     });
-    // connection.end();
+    // connection.release();
   } else {
     res.send("not enough money to purchase even 1 stock.");
   }
@@ -135,7 +137,7 @@ app.post("/sell", async (req, res) => {
     }
   });
 
-  // connection.end();
+  // connection.release();
 });
 
 app.post("/getContractsInvestedStocks", (req, res) => {
@@ -159,7 +161,7 @@ app.post("/getContractsInvestedStocks", (req, res) => {
 
     res.send(results);
   });
-  // connection.end();
+  // connection.release();
 });
 
 app.post("/getContractsValue", (req, res) => {
@@ -188,7 +190,7 @@ app.post("/getContractsValue", (req, res) => {
     var totalContractValueETH = totalContractValueUSD / ethInUsd;
     res.send({ totalContractValueETH: totalContractValueETH });
   });
-  // connection.end();
+  // connection.release();
 });
 
 app.post("/deleteContractFromDB", (req, res) => {

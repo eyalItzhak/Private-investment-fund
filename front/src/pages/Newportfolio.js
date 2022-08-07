@@ -13,6 +13,7 @@ const Newportfolio = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("name "+name );
     let contactID=await openNewPortFolios(mini,days,name);
     addPortfolioSQL(contactID);
     console.log(`The name you entered was: ${contactID}`);
