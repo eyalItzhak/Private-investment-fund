@@ -247,7 +247,8 @@ contract basic {
         address leave_address,
         uint yield //get the total value of the portfolios (yield)
     ) public workPeriod onlySite returns (bool) {
-        require(Stakeholders[msg.sender] == false); //currently Stakeholders cannot leave =>if we want to implement that stakeholder can leave we need to caculate who is the next stakholder in line....
+        require(Stakeholders[leave_address] == false); //currently Stakeholders cannot leave =>if we want to implement that stakeholder can leave we need to caculate who is the next stakholder in line....
+        require(leave_address != manager);
         uint myPercent = ownPercent[leave_address];
         uint totalValue = yield + investorBalanc();
         uint value = ((((totalValue * myPercent) / percent) * penelty) / percent);

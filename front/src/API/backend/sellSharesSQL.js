@@ -1,7 +1,7 @@
 import axios from "axios";
 import getContractInfo from "../ETH/getContractInfo";
 import web3 from "../../ethereum/web3";
-
+import sentMoneyToContreact from "../ETH/sentMoneyToContreact"
 const http = "http://localhost:8080";
 
 async function sellSharesSQL(what, ammamunt,address) {
@@ -19,6 +19,9 @@ async function sellSharesSQL(what, ammamunt,address) {
       .then((res) => {
         return res.data;
       });
+      console.log(data);
+      //retrun data price
+      //ex from ETH sentMoneyToContract...
     return data;
   } else {
     return false;

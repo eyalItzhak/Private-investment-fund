@@ -1,11 +1,11 @@
 import axios from "axios";
 const http = "http://localhost:8080";
 
-async function getContractValueSQL(address) {
- console.log("from get=>" + address);
+async function getAllInvestments(address) {
+  console.log("from get=>" + address);
   console.log("sent!");
   const data = await axios
-    .post(http + "/getContractsValue", {
+    .post(http + "/getContractsInvestedStocks", {
       info: { contract: address },
     })
     .then((res) => {
@@ -14,4 +14,4 @@ async function getContractValueSQL(address) {
   return data;
 }
 
-export default getContractValueSQL;
+export default getAllInvestments;

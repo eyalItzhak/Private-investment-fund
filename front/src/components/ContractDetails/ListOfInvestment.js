@@ -1,16 +1,15 @@
 
-import classes from "./Repayment.module.css";
-
+import Card from "../UI/Card"
 
 const ListOfInvestment = (props) => {
 
-  return (props.data.map((invest) => (
-        <div>
-          <div> symbol  {invest.symobl} </div>
+  return (props.data.map((invest,index) => (
+        <Card  key={index} >
+          <div> symbol  {invest.symbol} </div>
           <div> buy at price  {invest.purchase_rate} </div>
-          <div> buy at price  {invest.currentRate} </div>
-          <div> buy at price  {invest.quantity} </div>
-        </div>
+          <div> current price  {invest.currentRate} </div>
+          <div> quantity  {invest.quantity} </div>
+        </Card>
     
   )))
 };

@@ -133,7 +133,9 @@ app.post("/sell", (req, res) => {
   // connection.end();
 });
 
-app.get("/getContractsInvestedStocks", (req, res) => {
+app.post("/getContractsInvestedStocks", (req, res) => {
+  console.log("from backend")
+  console.log(req.body);
   const { info } = req.body;
   var contract = info.contract;
   console.log("get");
@@ -156,7 +158,7 @@ app.get("/getContractsInvestedStocks", (req, res) => {
 });
 
 
-app.get("/getContractsValue", (req, res) => {
+app.post("/getContractsValue", (req, res) => {
   const { info } = req.body;
   var contract = info.contract;
 
