@@ -1,5 +1,10 @@
-# Private-investment-fund (WIP)
+# Private-investment-fund
+
+Made by Anat - (https://github.com/anatMo) and Eyal (-https://github.com/eyalItzhak)
+
 ## Summary
+
+
 
 Creating a supportive environment for making investments on the Ethereum network. In this project, a contract was built in Solidity that includes the conditions for joining an investment portfolio, the definition of the "stakeholders" (those who approve the requests) and a manager.
 
